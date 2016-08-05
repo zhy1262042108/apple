@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*
+@mixin gai{
+  position: absolute;
+
+}*/
+.lunbo {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  /*.top,.bottom{
+    display: block;
+    @include matrix(30px,60px);
+    @include topbottom;
+    margin: auto;
+    cursor: pointer;
+  }
+  .top{
+    left: 0;
+  }
+  .bottom{
+    right: 0;
+  }*/
+}
+
+.lunbo .inner {
+  width: 100%;
+  height: 100%;
+}
+
+.lunbo .inner li:nth-child(1) {
+  background: url(../images/ios10_medium.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.lunbo .inner li:nth-child(2) {
+  background: url(../images/promo_applepay_medium.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.lunbo .inner li:nth-child(3) {
+  background: url(../images/public_betas_medium.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.lunbo .inner li:nth-child(4) {
+  background: url(../images/hp_tiles_iphone_medium.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.lunbo .inner .item {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 100px;
+  line-height: 300px;
+  transition: all .6s ease;
+}
+
+.lunbo .inner .active {
+  display: block;
+  transform: translateY(0);
+}
+
+.lunbo .inner .top {
+  display: block;
+  transform: translateY(-100%);
+}
+
+.lunbo .inner .bottom {
+  display: block;
+  transform: translateY(100%);
+}
+
+.lunbo .zhishi {
+  width: 40px;
+  height: 210px;
+  background: red;
+  background: transparent;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+}
+
+.lunbo .zhishi li {
+  width: 40px;
+  height: 40px;
+  background: #7de67c;
+  margin: 10px 0px;
+  background: greenyellow;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lunbo .zhishi .active {
+  background: orangered;
+}

@@ -1,0 +1,120 @@
+*{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+@mixin cube($size){
+  width: $size;
+  height: $size;
+  background: rgb(125,230,124);
+}
+
+@mixin matrix($w,$h){
+  width: $w;
+  height: $h;
+  background: red;
+}
+
+@mixin circle($c){
+  width: $c;
+  height: $c;
+  border-radius: 50%;
+  background: green;
+}
+
+@mixin topbottom{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin leftright{
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+@mixin center{
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/*
+@mixin gai{
+  position: absolute;
+
+}*/
+.lunbo{
+  @include matrix(600px,300px);
+  margin: auto;
+  overflow: hidden;
+  .inner{
+    width: 100%;
+    height: 100%;
+    $list: rgb(190, 78, 19), rgb(190, 142, 176), rgb(56, 190, 49), rgb(19, 181, 190);
+    @for $i from 1 through 4{
+      li:nth-child(#{$i}){
+        background: nth($list,$i);
+      }
+    }
+    .item{
+      display: none;
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 100px;
+      line-height: 300px;
+      transition: all .6s ease;
+    }
+    .active{
+      display: block;
+      transform: translateX(0);
+    }
+    .left{
+      display: block;
+      transform: translateX(-100%);
+    }
+    .right{
+      display: block;
+      transform: translateX(100%);
+    }
+  }
+  .zhishi{
+    @include matrix(122px,20px);
+    background: transparent;
+    margin: auto;
+    @include leftright;
+    bottom: 10px;
+    li{
+      @include circle(10px);
+      float: left;
+      margin: 5px 10px;
+      background: #ccc;
+      cursor: pointer;
+    }
+    .active{
+      box-shadow: 0 0 0 1px #0400be;
+    }
+  }
+  .zuo,.you{
+    display: block;
+    @include matrix(30px,60px);
+    @include topbottom;
+    margin: auto;
+    cursor: pointer;
+  }
+  .zuo{
+    left: 0;
+  }
+  .you{
+    right: 0;
+  }
+}

@@ -1,0 +1,116 @@
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+/*
+@mixin gai{
+  position: absolute;
+
+}*/
+.lunbo {
+  width: 600px;
+  height: 300px;
+  background: red;
+  margin: auto;
+  overflow: hidden;
+}
+
+.lunbo .inner {
+  width: 100%;
+  height: 100%;
+}
+
+.lunbo .inner li:nth-child(1) {
+  background: #be4e13;
+}
+
+.lunbo .inner li:nth-child(2) {
+  background: #be8eb0;
+}
+
+.lunbo .inner li:nth-child(3) {
+  background: #38be31;
+}
+
+.lunbo .inner li:nth-child(4) {
+  background: #13b5be;
+}
+
+.lunbo .inner .item {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 100px;
+  line-height: 300px;
+  transition: all .6s ease;
+}
+
+.lunbo .inner .active {
+  display: block;
+  transform: translateX(0);
+}
+
+.lunbo .inner .left {
+  display: block;
+  transform: translateX(-100%);
+}
+
+.lunbo .inner .right {
+  display: block;
+  transform: translateX(100%);
+}
+
+.lunbo .zhishi {
+  width: 122px;
+  height: 20px;
+  background: red;
+  background: transparent;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 10px;
+}
+
+.lunbo .zhishi li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: green;
+  float: left;
+  margin: 5px 10px;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.lunbo .zhishi .active {
+  box-shadow: 0 0 0 1px #0400be;
+}
+
+.lunbo .zuo, .lunbo .you {
+  display: block;
+  width: 30px;
+  height: 60px;
+  background: red;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+}
+
+.lunbo .zuo {
+  left: 0;
+}
+
+.lunbo .you {
+  right: 0;
+}

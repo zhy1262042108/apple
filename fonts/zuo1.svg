@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" viewBox="0 0 200 200"><defs><style type="text/css"><![CDATA[
+@font-face {
+  font-family: "ifont";
+  src: url("//at.alicdn.com/t/font_1442373896_4754455.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_1442373896_4754455.woff") format("woff"), url("//at.alicdn.com/t/font_1442373896_4754455.ttf") format("truetype"), url("//at.alicdn.com/t/font_1442373896_4754455.svg#ifont") format("svg");
+}
+
+]]></style></defs><g class="transform-group"><g transform="scale(0.1953125, 0.1953125)"><path d="M648.512 13.504c7.104 0 14.528 2.304 20.736 6.784 15.616 11.52 19.072 33.344 7.616 49.152L354.816 512l322.176 442.688c11.392 15.872 7.872 37.76-7.872 49.152-15.552 11.392-37.632 8-49.024-7.744L283.072 532.544c-9.024-12.16-9.024-28.928 0-41.28l337.088-463.168C627.008 18.688 637.696 13.504 648.512 13.504" fill="#272636"></path></g></g></svg>

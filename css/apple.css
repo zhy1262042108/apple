@@ -1,0 +1,1333 @@
+@font-face {
+  font-family: 'hcuti';
+  src: url("../fonts/HanHei-SC-semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'hzhengchang';
+  src: url("../fonts/HanHei-SC-text.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'hxiti';
+  src: url("../fonts/HanHei-SC-thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'mcuti';
+  src: url("../fonts/myriad-set-pro_semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'mxiti';
+  src: url("../fonts/myriad-set-pro_thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'mjixiti';
+  src: url("../fonts/myriad-set-pro_extrathin.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'mzhengchang';
+  src: url("../fonts/myriad-set-pro_text.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'jiantou';
+  font-weight: 100;
+  font-size: 100px;
+  font-style: normal;
+  src: url("../fonts/ux_1469416536_060599/iconfont.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  font-size: 15px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.curtain {
+  display: none;
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  transition: all 0.8s ease;
+}
+
+.header {
+  width: 100%;
+  height: 44px;
+  background: #333;
+  position: relative;
+  z-index: 10001;
+}
+
+.header .max-nav {
+  max-width: 1024px;
+  height: 44px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 44px;
+  position: relative;
+  background: #333;
+  z-index: 10000;
+  /*.quxiao {
+      width: 38px;
+      height: 44px;
+      padding: 0;
+      display: none;
+      position: relative;
+      .top, .bottom {
+        margin: auto;
+        @include zuoyou;
+        !*margin-left: 5px;*!
+        width: 18px;
+        height: 1px;
+        display: block;
+        background: #fff;
+        position: absolute;
+        transition: all .2s ease;
+        //@include zuoyou;
+      }
+      .top {
+        top: 18px;
+        transform: translateY(3.5px) rotate(135deg);
+      }
+      .bottom {
+        bottom: 18px;
+        transform: translateY(-3.5px) rotate(45deg);
+      }
+    }*/
+}
+
+.header .max-nav::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.header .max-nav .quxiao {
+  display: none;
+  opacity: 0;
+  width: 38px;
+  height: 44px;
+  transition: opacity .2s ease;
+}
+
+.header .max-nav .quxiao .top, .header .max-nav .quxiao .bottom {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 18px;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  transition: all .2s ease;
+}
+
+.header .max-nav .quxiao .top {
+  top: 18px;
+  transform: translateY(3.5px) rotate(135deg);
+}
+
+.header .max-nav .quxiao .bottom {
+  bottom: 18px;
+  transform: translateY(-3.5px) rotate(45deg);
+}
+
+.header .max-nav .quxiao.show {
+  opacity: 1;
+}
+
+.header .max-nav li {
+  width: auto;
+  height: 100%;
+  display: inline-block;
+  padding: 0 20px;
+  vertical-align: top;
+  transition: all .6s ease;
+  transform: rotateY(0deg);
+}
+
+.header .max-nav li a {
+  height: 44px;
+  color: #fff;
+  transition: opacity .2s ease;
+}
+
+.header .max-nav li a span {
+  font-size: 0;
+}
+
+.header .max-nav li a:hover {
+  opacity: 0.65;
+}
+
+.header .min-nav {
+  display: none;
+  max-width: 768px;
+  height: 48px;
+  margin: 0 auto;
+  text-align: justify;
+  position: relative;
+  z-index: 10000;
+  background: #333;
+  padding: 0 0px;
+}
+
+.header .min-nav::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.header .min-nav .btn {
+  cursor: pointer;
+}
+
+.header .min-nav .btn:hover .top, .header .min-nav .btn:hover .bottom {
+  opacity: 0.6;
+}
+
+.header .min-nav .top, .header .min-nav .bottom {
+  margin-left: 15px;
+  width: 18px;
+  height: 1px;
+  display: block;
+  background: #fff;
+  position: absolute;
+  transition: all .2s ease;
+}
+
+.header .min-nav .top {
+  top: 20px;
+}
+
+.header .min-nav .bottom {
+  bottom: 20px;
+}
+
+.header .min-nav .active .top {
+  transform: translateY(3.5px) rotate(135deg);
+}
+
+.header .min-nav .active .bottom {
+  transform: translateY(-3.5px) rotate(45deg);
+}
+
+.header .min-nav li {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.header .min-nav li a {
+  height: 48px;
+  margin: auto;
+  color: #fff;
+  transition: opacity .2s ease;
+}
+
+.header .min-nav li a span {
+  font-size: 0;
+}
+
+.header .min-nav li a:hover {
+  opacity: 0.65;
+}
+
+.header .searchview {
+  transition: height .2s ease;
+  overflow: hidden;
+  height: 0;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 51%;
+  /*height: 100vh;*/
+  z-index: 10003;
+}
+
+.header .searchview .searchform.feiru {
+  transition: all .5s ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.header .searchview .searchform {
+  opacity: 0;
+  transform: translateX(2000px);
+  height: 44px;
+  line-height: 44px;
+  background: #333;
+}
+
+.header .searchview .searchform .searchform-wrap {
+  height: 44px;
+  padding-left: 40px;
+  position: relative;
+  background: #333;
+}
+
+.header .searchview .searchform .searchform-wrap input {
+  width: 100%;
+  height: 1.375em;
+  border: 0;
+  font-size: 17px;
+  line-height: 1.375;
+  font-weight: 400;
+  color: #FFF;
+  font-family: hxiti;
+  outline: medium none;
+  letter-spacing: normal;
+  background: #333;
+}
+
+.header .searchview .searchform .searchform-wrap .submit {
+  border: 0;
+  background: #333;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 40px;
+  height: 44px;
+  cursor: pointer;
+  background-size: 20px 44px;
+  background-image: url("../images/search_large.svg");
+  background-position: 10px 50%;
+  background-repeat: no-repeat;
+}
+
+.header .searchview .searchresult {
+  transition: opacity .3s ease;
+  width: 100%;
+  font-size: 15px;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: normal;
+  background: #FFF;
+  border-top: medium none;
+  color: #999;
+  max-height: calc(100% - 44px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.header .searchview .searchresult .defaultlist {
+  padding: 24px 0 15px;
+  margin: 0 40px;
+}
+
+.header .searchview .searchresult .defaultlist h3 {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #999;
+  font-family: hzhengchang;
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist {
+  padding-top: 5px;
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item {
+  transform: translateX(2000px);
+  margin: 4px -32px;
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item:hover {
+  background: #eee;
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item:hover a {
+  color: #0070c9;
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item a {
+  color: #999;
+  display: block;
+  padding: 0px 48px;
+  font-family: hzhengchang;
+  font-size: 1em;
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item.fei:nth-of-type(1) {
+  transition: transform .4s ease;
+  transition-delay: 0.08s;
+  transform: translateX(0px);
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item.fei:nth-of-type(2) {
+  transition: transform .4s ease;
+  transition-delay: 0.16s;
+  transform: translateX(0px);
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item.fei:nth-of-type(3) {
+  transition: transform .4s ease;
+  transition-delay: 0.24s;
+  transform: translateX(0px);
+}
+
+.header .searchview .searchresult .defaultlist .reaultslist .item.fei:nth-of-type(4) {
+  transition: transform .4s ease;
+  transition-delay: 0.32s;
+  transform: translateX(0px);
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner {
+    height: 605px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner {
+    height: 605px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    min-height: 391px;
+  }
+}
+
+.banner li {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /*background-size: cover;*/
+  position: absolute;
+}
+
+.banner li a {
+  width: 100%;
+  height: 100%;
+}
+
+.banner li .headline {
+  width: 100%;
+  margin-bottom: 0.25em;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner li .headline {
+    height: 39px;
+    line-height: 39px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner li .headline {
+    height: 39px;
+    line-height: 39px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner li .headline {
+    height: 31px;
+    line-height: 31px;
+  }
+}
+
+.banner li .headline span {
+  display: inline-block;
+  font-weight: 300;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-family: hxiti;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner li .headline span {
+    width: 184px;
+    height: 39px;
+    font-size: 52px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner li .headline span {
+    idth: 184px;
+    height: 39px;
+    font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner li .headline span {
+    width: 145px;
+    height: 31px;
+    font-size: 40px;
+  }
+}
+
+.banner li .description {
+  line-height: 1.125;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 0.25em;
+  font-style: normal;
+  font-family: "hxiti";
+}
+
+@media screen and (min-width: 1068px) {
+  .banner li .description {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner li .description {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner li .description {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner1 {
+    background: url("../images/apple_watch_trio_small.jpg") no-repeat center 160px;
+    background-size: 263px 134px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner1 {
+    background: url("../images/apple_watch_trio_medium.jpg") no-repeat center 160px;
+    background-size: 671px 341px;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner1 {
+    background: url("../images/apple_watch_trio_large.jpg") no-repeat center 160px;
+    background-size: 671px 341px;
+  }
+}
+
+.banner .banner1 .watch {
+  height: 14.5%;
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 80px;
+}
+
+.banner .banner1 .watch .headline span {
+  display: inline-block;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner1 .watch .headline span {
+    width: 184px;
+    height: 39px;
+    background: url("../images/apple_watch_medium.png");
+    background-size: 184px 39px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner1 .watch .headline span {
+    width: 184px;
+    height: 39px;
+    background: url("../images/apple_watch_medium.png");
+    background-size: 184px 39px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner1 .watch .headline span {
+    width: 145px;
+    height: 31px;
+    background: url("../images/apple_watch_small.png");
+    background-size: 145px 31px;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner2 {
+    background: url("../images/macbook_large.png") no-repeat center 230px;
+    background-size: 692px 247px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner2 {
+    background: url("../images/macbook_medium.png") no-repeat center 230px;
+    background-size: 692px 247px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner2 {
+    background: url("../images/macbook_small.png") no-repeat center 200px;
+    background-size: 300px 107px;
+  }
+}
+
+.banner .banner2 .mac {
+  height: 14.5%;
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 80px;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner3 {
+    background: url("../images/ipad_pro_family_large.jpg") no-repeat center 180px;
+    background-size: 1310px 542px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner3 {
+    background: url("../images/ipad_pro_family_medium.jpg") no-repeat center 180px;
+    background-size: 1310px 542px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner3 {
+    background: url("../images/ipad_pro_family_small.jpg") no-repeat center 160px;
+    background-size: 440px 182px;
+  }
+}
+
+.banner .banner3 .ipad {
+  height: 14.5%;
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 40px;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner4 {
+    background: url("../images/iphone_6s_large.jpg") no-repeat center bottom;
+    background-size: 1400px 389px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner4 {
+    background: url("../images/iphone_6s_medium.jpg") no-repeat center bottom;
+    background-size: 1400px 389px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner4 {
+    background: url("../images/iphone_6s_small.jpg") no-repeat center 160px;
+    background-size: 540px 150px;
+  }
+}
+
+.banner .banner4 .iphone {
+  height: 14.5%;
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner4 .iphone {
+    top: 60px;
+  }
+  .banner .banner4 .iphone .s {
+    display: none;
+  }
+  .banner .banner4 .iphone .l {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner4 .iphone {
+    top: 60px;
+  }
+  .banner .banner4 .iphone .s {
+    display: none;
+  }
+  .banner .banner4 .iphone .l {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner4 .iphone {
+    top: 20px;
+  }
+  .banner .banner4 .iphone .s {
+    display: block;
+  }
+  .banner .banner4 .iphone .l {
+    display: none;
+  }
+}
+
+.banner .banner4 .iphone .headline {
+  margin-bottom: 0.25em;
+}
+
+@media screen and (min-width: 1068px) {
+  .banner .banner4 .iphone .headline span {
+    width: 184px;
+    height: 39px;
+    background: url("../images/iphone_6s_medium.png");
+    background-size: 184px 39px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .banner .banner4 .iphone .headline span {
+    width: 184px;
+    height: 39px;
+    background: url("../images/iphone_6s_medium.png");
+    background-size: 184px 39px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner .banner4 .iphone .headline span {
+    width: 166px;
+    height: 31px;
+    background: url("../images/iphone_6s_small.png");
+    background-size: 166px 31px;
+  }
+}
+
+.banner .btnbox {
+  width: 114px;
+  height: 8px;
+  position: absolute;
+  bottom: 10px;
+  z-index: 1000;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.banner .btnbox .btns {
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  float: left;
+  position: relative;
+}
+
+.banner .btnbox .btns a {
+  width: 8px;
+  height: 8px;
+  background: #999;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.banner .LR .Left, .banner .LR .Right {
+  width: 67px;
+  height: 128px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1000;
+  text-align: center;
+  font-size: 72px;
+  border-radius: 4px;
+  color: #666;
+  line-height: 128px;
+  margin-top: -64px;
+  top: 50%;
+  font-style: normal;
+  font-weight: 200;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+.banner .LR .Left {
+  left: 18px;
+  font-family: jiantou;
+}
+
+.banner .LR .Right {
+  right: 18px;
+  font-family: jiantou;
+}
+
+.banner .LR .o {
+  opacity: 0.6;
+}
+
+.con {
+  width: 100%;
+  min-height: 200px;
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.con a {
+  border-bottom: 2px solid #fff;
+  height: 200px;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1068px) {
+  .con a {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .con a {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .con a {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .con .con-1 {
+    border-right: 2px solid #fff;
+    background: url(../images/promo_applepay_large.jpg) no-repeat center;
+  }
+  .con .con-2 {
+    border-right: 2px solid #fff;
+    background: url(../images/public_betas_large.jpg) no-repeat center;
+  }
+  .con .con-3 {
+    border-right: 2px solid #fff;
+    background: url(../images/ios10_large.jpg) no-repeat center;
+  }
+  .con .con-4 {
+    background: url(../images/hp_tiles_iphone_large.jpg) no-repeat center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .con .con-1 {
+    background: url(../images/promo_applepay_medium.jpg) no-repeat center;
+  }
+  .con .con-2 {
+    border-right: 2px solid #fff;
+    background: url(../images/public_betas_medium.jpg) no-repeat center;
+  }
+  .con .con-3 {
+    border-right: 2px solid #fff;
+    background: url(../images/ios10_medium.jpg) no-repeat center;
+  }
+  .con .con-4 {
+    background: url(../images/hp_tiles_iphone_medium.jpg) no-repeat center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .con .con-1 {
+    background: url(../images/promo_applepay_small.jpg) no-repeat center;
+  }
+  .con .con-2 {
+    border-right: 2px solid #fff;
+    background: url(../images/public_betas_small.jpg) no-repeat center;
+  }
+  .con .con-3 {
+    border-right: 2px solid #fff;
+    background: url(../images/ios10_small.jpg) no-repeat center;
+  }
+  .con .con-4 {
+    background: url(../images/hp_tiles_iphone_small.jpg) no-repeat center;
+  }
+}
+
+.footbox {
+  width: 100%;
+  height: 356px;
+  background: #f2f2f2;
+}
+
+.footbox .footer {
+  padding: 0 22px;
+  max-width: 980px;
+  height: 100%;
+  margin: 0 auto;
+  font-family: hzhengchang;
+  /* background: #ccc; */
+}
+
+.footbox .footer .tell {
+  font-family: hzhengchang;
+  width: 100%;
+  font-size: 12px;
+  border-bottom: 1px solid #e3e3e3;
+  color: #999;
+  line-height: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 6px;
+  padding-top: 20px;
+}
+
+.footbox .footer .tell span {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.footbox .footer .tell span:hover {
+  color: #555;
+  text-decoration: underline;
+}
+
+.footbox .footer .copy1 {
+  font-family: hzhengchang;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  color: #999;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .footbox .footer .place {
+    float: right;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .footbox .footer .place {
+    float: right;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footbox .footer .place {
+    float: none;
+  }
+}
+
+.footbox .footer .img1 {
+  float: left;
+  /*margin-left: 455px;*/
+  margin-top: 5px;
+}
+
+.footbox .footer .china {
+  color: #666;
+  display: block;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .footbox .footer .china {
+    float: right;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .footbox .footer .china {
+    float: right;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footbox .footer .china {
+    float: none;
+  }
+}
+
+.footbox .footer .china:hover {
+  color: #444;
+  text-decoration: underline;
+}
+
+.footbox .footer .word {
+  line-height: 15px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .footbox .footer .word {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .footbox .footer .word {
+    float: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footbox .footer .word {
+    float: none;
+  }
+}
+
+.footbox .footer .links {
+  margin-top: 5px;
+  float: left;
+  margin-left: 33px;
+  line-height: 15px;
+}
+
+.footbox .footer .links li {
+  float: left;
+  box-sizing: content-box;
+}
+
+.footbox .footer .links li a {
+  height: 15px;
+  line-height: 15px;
+  border-right: 1px solid #D6D6D6;
+  margin-right: 10px;
+  padding-right: 12px;
+  white-space: nowrap;
+  box-sizing: content-box;
+  color: #666;
+}
+
+.footbox .footer .shu {
+  margin: 0 14px;
+}
+
+.footbox .footer .links li a:hover {
+  color: #444;
+  text-decoration: underline;
+}
+
+.footbox .footer .copy2 {
+  width: 100%;
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+  text-align: left;
+}
+
+.footbox .footer .copy2 span {
+  color: #999;
+}
+
+.footbox .footer .copy2 span:hover {
+  text-decoration: underline;
+}
+
+.footbox .footer .listbox {
+  width: 100%;
+  height: 240px;
+  padding-top: 12px;
+  font-size: 12px;
+  line-height: 1.66667;
+  font-weight: 400;
+  color: #666;
+}
+
+.footbox .footer .listbox .list {
+  width: 20%;
+  height: auto;
+  float: left;
+  line-height: 20px;
+}
+
+.footbox .footer .listbox .list .title {
+  font-weight: 600;
+  padding-top: 20px;
+  font-family: hcuti;
+  color: #333;
+}
+
+.footbox .footer .listbox .list .title span {
+  float: right;
+  font-size: 12px;
+  font-weight: 600;
+  display: none;
+  transition: all 1s;
+}
+
+@media screen and (min-width: 1068px) {
+  .footbox .footer .listbox .list .erji {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .footbox .footer .listbox .list .erji {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footbox .footer .listbox .list .erji {
+    display: none;
+  }
+}
+
+.footbox .footer .listbox .list .erji a {
+  font-family: hzhengchang;
+  color: #666;
+  transition: all .5s ease;
+}
+
+.footbox .footer .listbox .list .erji a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 48px;
+  }
+  .header .min-nav {
+    display: block;
+  }
+  .header .max-nav {
+    height: auto;
+    padding: 0 30px;
+    display: none;
+  }
+  .header .max-nav li {
+    width: 100%;
+    height: 44px;
+    border-bottom: 1px solid #666;
+  }
+  .header .max-nav .logo, .header .max-nav .bag {
+    display: none !important;
+  }
+  .con {
+    height: 800px;
+  }
+  .footbox {
+    height: auto !important;
+  }
+  .footer {
+    width: auto;
+    height: auto;
+    padding: 0 20px;
+  }
+  .listbox {
+    height: auto !important;
+  }
+  .list {
+    width: 100% !important;
+    float: none !important;
+  }
+  .title {
+    height: 38px;
+    padding-top: 0px !important;
+    line-height: 38px;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .title span {
+    display: block !important;
+  }
+  .erji {
+    display: none;
+  }
+  .erji li {
+    line-height: 30px;
+  }
+  .place {
+    padding-bottom: 8px;
+  }
+  .tell {
+    margin-top: 10px;
+    height: auto !important;
+    padding-bottom: 6px;
+    border-bottom: 6px !important;
+    background-size: cover;
+  }
+  .copy2 {
+    height: auto !important;
+    text-align: left !important;
+    margin-bottom: 20px;
+  }
+  .copy1 {
+    height: auto !important;
+    line-height: 20px;
+  }
+  .links {
+    height: 20px;
+    float: none !important;
+  }
+  .links {
+    margin-left: 0px !important;
+  }
+  .activeJia {
+    transform: rotate(45deg);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1068px) {
+  .header {
+    height: 44px;
+  }
+  .header .max-nav {
+    display: block;
+  }
+  .con {
+    height: 400px;
+  }
+  .erji {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .header {
+    height: 44px;
+  }
+  .header .max-nav {
+    display: block;
+  }
+  .erji {
+    display: block !important;
+  }
+}
+
+.logo a {
+  width: 20px;
+  background: url(../images/logo_large.svg) no-repeat center center;
+  background-size: 20px 44px;
+}
+
+.mac a {
+  width: 31px;
+  background: url(../images/mac_large.svg) no-repeat center center;
+  background-size: 31px 44px;
+}
+
+.ipad a {
+  width: 30px;
+  background: url(../images/ipad_large.svg) no-repeat center center;
+  background-size: 30px 44px;
+}
+
+.iphone a {
+  width: 48px;
+  background: url(../images/iphone_large.svg) no-repeat center center;
+  background-size: 48px 44px;
+}
+
+.watch a {
+  width: 44px;
+  background: url(../images/watch_large.svg) no-repeat center center;
+  background-size: 44px 44px;
+}
+
+.music a {
+  width: 40px;
+  background: url(../images/music_large.svg) no-repeat center center;
+  background-size: 40px 44px;
+}
+
+.support a {
+  width: 57px;
+  background: url(../images/support_large.svg) no-repeat center center;
+  background-size: 57px 44px;
+}
+
+.search a {
+  width: 20px;
+  background: url(../images/search_large.svg) no-repeat center center;
+  background-size: 20px 44px;
+}
+
+.bag a {
+  width: 18px;
+  background: url(../images/bag_large.svg) no-repeat center center;
+  background-size: 18px 44px;
+}
+
+.max-nav li.animation:nth-of-type(2) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}
+
+.max-nav li.animation:nth-of-type(3) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}
+
+.max-nav li.animation:nth-of-type(4) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}
+
+.max-nav li.animation:nth-of-type(5) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}
+
+.max-nav li.animation:nth-of-type(6) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}
+
+.max-nav li.animation:nth-of-type(7) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}
+
+.max-nav li.animation:nth-of-type(8) {
+  transform: rotateY(80deg);
+  opacity: 0;
+}

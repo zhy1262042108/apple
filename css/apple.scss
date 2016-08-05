@@ -1,0 +1,993 @@
+@import "base";
+@import "font";
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body{
+  width: 100%;
+  font-size: 15px;
+}
+a{
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+.curtain{
+  display: none;
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  transition: all 0.8s ease;
+}
+.header{
+  width:100% ;
+  height: 44px;
+  background: #333;
+  position: relative;
+  z-index: 10001;
+  .max-nav {
+    max-width: 1024px;
+    height: 44px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 44px;
+    position: relative;
+    background: #333;
+    z-index: 10000;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+    }
+    .quxiao{
+      display: none;
+      opacity: 0;
+      width: 38px;
+      height: 44px;
+      transition: opacity .2s ease;
+      .top, .bottom {
+        margin: auto;
+        //display: none;
+        @include zuoyou;
+        width: 18px;
+        height: 1px;
+        background: #fff;
+        position: absolute;
+        transition: all .2s ease;
+        //@include zuoyou;
+      }
+      .top {
+        top: 18px;
+        transform: translateY(3.5px) rotate(135deg);
+      }
+      .bottom {
+        bottom: 18px;
+        transform: translateY(-3.5px) rotate(45deg);
+      }
+    }
+  .quxiao.show{
+    opacity: 1;
+  }
+    /*.quxiao {
+      width: 38px;
+      height: 44px;
+      padding: 0;
+      display: none;
+      position: relative;
+      .top, .bottom {
+        margin: auto;
+        @include zuoyou;
+        !*margin-left: 5px;*!
+        width: 18px;
+        height: 1px;
+        display: block;
+        background: #fff;
+        position: absolute;
+        transition: all .2s ease;
+        //@include zuoyou;
+      }
+      .top {
+        top: 18px;
+        transform: translateY(3.5px) rotate(135deg);
+      }
+      .bottom {
+        bottom: 18px;
+        transform: translateY(-3.5px) rotate(45deg);
+      }
+    }*/
+    li {
+      width: auto;
+      height: 100%;
+      display: inline-block;
+      padding: 0 20px;
+      vertical-align: top; //垂直方向内容居上
+      transition: all .6s ease;
+      transform: rotateY(0deg);
+      a {
+        height: 44px;
+        color: #fff;
+        transition: opacity .2s ease;
+        span {
+          font-size: 0;
+        }
+        &:hover {
+          opacity: 0.65;
+        }
+      }
+    }
+  }
+  .min-nav{
+    display: none;
+    max-width: 768px;
+    height: 48px;
+    margin: 0 auto;
+    text-align: justify;
+    position: relative;
+    z-index: 10000;
+    &::after{
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+    }
+    background: #333;
+    //display: none;
+    padding: 0 0px;
+    .btn{
+      cursor: pointer;
+      &:hover .top,&:hover .bottom{
+        opacity: 0.6;
+      }
+    }
+    .top,.bottom{
+      margin-left: 15px;
+      width: 18px;
+      height: 1px;
+      display: block;
+      background: #fff;
+      position: absolute;
+      transition: all .2s ease;
+      //@include zuoyou;
+    }
+    .top{
+      top: 20px;
+    }
+    .bottom{
+      bottom:20px;
+    }
+    .active .top{
+      transform:translateY(3.5px) rotate(135deg);
+    }
+    .active .bottom{
+      transform:translateY(-3.5px) rotate(45deg);
+    }
+    li{
+      @include cube(48px);
+      display: inline-block;
+      vertical-align: top;//垂直方向内容居上
+      a{
+        height: 48px;
+        margin: auto;
+        color: #fff;
+        transition: opacity .2s ease;
+        span{
+          font-size: 0;
+        }
+        &:hover{
+          opacity: 0.65;
+        }
+      }
+    }
+  }
+
+  .searchview{
+    transition: height .2s ease;
+    overflow: hidden;
+    height: 0;
+    //display: none;
+    //display: block;
+    margin: auto;
+    @include zuoyou;
+    top: 0;
+    width: 51%;
+    /*height: 100vh;*/
+    z-index: 10003;
+    .searchform.feiru{
+      transition: all .5s ease;
+      transform:translateX(0);
+      opacity: 1;
+    }
+    .searchform{
+      opacity: 0;
+
+      transform:translateX(2000px);
+      height: 44px;
+      line-height: 44px;
+      background: #333;
+      .searchform-wrap{
+        height: 44px;
+        padding-left: 40px;
+        position: relative;
+        background: #333;
+        input{
+          width: 100%;
+          height: 1.375em;
+          border: 0;
+          font-size: 17px;
+          line-height: 1.375;
+          font-weight: 400;
+          color: #FFF;
+          font-family: hxiti;
+          outline: medium none;
+          letter-spacing: normal;
+          background: #333;
+        }
+        .submit{
+          border: 0;
+          background: #333;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 40px;
+          height: 44px;
+          cursor: pointer;
+          background-size: 20px 44px;
+          background-image: url("../images/search_large.svg");
+          background-position: 10px 50%;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+    .searchresult{
+      transition: opacity .3s ease;
+      width: 100%;
+      font-size: 15px;
+      line-height: 2;
+      font-weight: 400;
+      letter-spacing: normal;
+      background: #FFF;
+      border-top: medium none;
+      color: #999;
+      max-height: calc(100% - 44px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      white-space: nowrap;
+      .defaultlist{
+        padding: 24px 0 15px;
+        margin: 0 40px;
+        h3{
+          font-size: 12px;
+          line-height: 1;
+          font-weight: 400;
+          letter-spacing: normal;
+          color: #999;
+          font-family: hzhengchang;
+        }
+        .reaultslist{
+          padding-top: 5px;
+          .item{
+            transform: translateX(2000px);
+            margin: 4px -32px;
+            &:hover{
+              background: #eee;
+            }
+            &:hover a{
+              color:#0070c9;
+            }
+            a{
+              color: #999;
+              display: block;
+              padding: 0px 48px;
+              font-family: hzhengchang;
+              font-size: 1em;
+            }
+          }
+          @for $i from 1 through 4{
+            .item.fei:nth-of-type(#{$i}){
+              transition: transform .4s ease;
+              transition-delay:$i*0.08s;
+              transform: translateX(0px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.banner{
+  width: 100%;
+  @include onl{
+    height: 605px;
+  }
+  @include onm{
+    height: 605px;
+  }
+  @include ons{
+    min-height: 391px;
+  }
+  position: relative;
+  overflow: hidden;
+  li{
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*background-size: cover;*/
+    position: absolute;
+    a{
+      width: 100%;
+      height: 100%;
+    }
+    .headline{
+      width: 100%;
+      @include onl{
+        height: 39px;
+        line-height: 39px;
+      }
+      @include onm{
+        height: 39px;
+        line-height: 39px;
+      }
+      @include ons{
+        height: 31px;
+        line-height: 31px;
+      }
+      margin-bottom: 0.25em;
+      span{
+        display: inline-block;
+        font-weight: 300;
+        @include onl{
+          width: 184px;
+          height: 39px;
+          font-size: 52px;
+        }
+        @include onm{
+          width: 184px;
+          height: 39px;
+          font-size: 52px;
+        }
+        @include ons{
+          width: 145px;
+          height: 31px;
+          font-size: 40px;
+        }
+        margin: auto;
+        @include zuoyou;
+        font-family: hxiti;
+      }
+    }
+    .description{
+      @include onl{
+        font-size: 30px;
+      }
+      @include onm{
+        font-size: 30px;
+      }
+      @include ons{
+        font-size: 22px;
+      }
+      line-height: 1.125;
+      font-weight: 300;
+      color: #333;
+      margin-bottom: 0.25em;
+      font-style: normal;
+      font-family: "hxiti";
+    }
+  }
+  .banner1{
+    @include ons{
+      background: #fff url("../images/apple_watch_trio_small.jpg")no-repeat center 160px;
+      background-size: 263px 134px;
+    }
+    @include onm{
+      background: #fff url("../images/apple_watch_trio_medium.jpg")no-repeat center 160px;
+      background-size: 671px 341px
+    }
+    @include onl{
+      background: #fff url("../images/apple_watch_trio_large.jpg")no-repeat center 160px;
+      background-size: 671px 341px;
+    }
+    .watch{
+      height: 14.5%;
+      width: 80%;
+      margin: auto;
+      @include zuoyou;
+      text-align: center;
+      top:80px;
+      .headline{
+        span{
+          display: inline-block;
+          @include onl{
+            width: 184px;
+            height: 39px;
+            background: url("../images/apple_watch_medium.png");
+            background-size: 184px 39px;
+          }
+          @include onm{
+            width: 184px;
+            height: 39px;
+            background: url("../images/apple_watch_medium.png");
+            background-size: 184px 39px;
+          }
+          @include ons{
+            width: 145px;
+            height: 31px;
+            background: url("../images/apple_watch_small.png");
+            background-size: 145px 31px;
+          }
+        }
+      }
+    }
+  }
+  .banner2{
+    @include onl{
+      background: #fff url("../images/macbook_large.png")no-repeat center 230px;
+      background-size: 692px 247px;
+    }
+    @include onm{
+      background: #fff url("../images/macbook_medium.png")no-repeat center 230px;
+      background-size: 692px 247px;
+    }
+    @include ons{
+      background: #fff url("../images/macbook_small.png")no-repeat center 200px;
+      background-size: 300px 107px;
+    }
+    .mac{
+      height: 14.5%;
+      width: 80%;
+      margin: auto;
+      @include zuoyou;
+      text-align: center;
+      top:80px;
+    }
+  }
+  .banner3{
+    @include onl{
+      background: #fff url("../images/ipad_pro_family_large.jpg")no-repeat center 180px;
+      background-size: 1310px 542px;
+    }
+    @include onm{
+      background: #fff url("../images/ipad_pro_family_medium.jpg")no-repeat center 180px;
+      background-size: 1310px 542px;
+    }
+    @include ons{
+      background: #fff url("../images/ipad_pro_family_small.jpg")no-repeat center 160px;
+      background-size: 440px 182px;
+    }
+    .ipad{
+      height: 14.5%;
+      width: 80%;
+      margin: auto;
+      @include zuoyou;
+      text-align: center;
+      top:40px;
+    }
+  }
+  .banner4{
+    @include onl{
+      background: #fff url("../images/iphone_6s_large.jpg")no-repeat center bottom;
+      background-size: 1400px 389px;
+    }
+    @include onm{
+      background: #fff url("../images/iphone_6s_medium.jpg")no-repeat center bottom;
+      background-size: 1400px 389px;
+    }
+    @include ons{
+      background: #fff url("../images/iphone_6s_small.jpg")no-repeat center 160px;
+      background-size: 540px 150px;
+    }
+    .iphone{
+      height: 14.5%;
+      width: 80%;
+      margin: auto;
+      @include zuoyou;
+      text-align: center;
+      @include onl{
+        top:60px;
+        .s{
+          display: none;
+        }
+        .l{
+          display: block;
+        }
+      }
+      @include onm{
+        top:60px;
+        .s{
+          display: none;
+        }
+        .l{
+          display: block;
+        }
+      }
+      @include ons{
+        top:20px;
+        .s{
+          display: block;
+        }
+        .l{
+          display: none;
+        }
+      }
+      .headline{
+        margin-bottom: 0.25em;
+        span{
+          @include onl{
+            width: 184px;
+            height: 39px;
+            background: url("../images/iphone_6s_medium.png");
+            background-size: 184px 39px;
+          }
+          @include onm{
+            width: 184px;
+            height: 39px;
+            background: url("../images/iphone_6s_medium.png");
+            background-size: 184px 39px;
+          }
+          @include ons{
+            width: 166px;
+            height: 31px;
+            background: url("../images/iphone_6s_small.png");
+            background-size: 166px 31px;
+          }
+        }
+      }
+    }
+  }
+  .btnbox{
+    width: 114px;
+    height: 8px;
+    position: absolute;
+    bottom: 10px;
+    z-index: 1000;
+    margin: auto;
+    @include zuoyou;
+    .btns{
+      width: 8px;
+      height: 8px;
+      margin: 0 10px;
+
+      float: left;
+      position: relative;
+      a{
+        width: 8px;
+        height: 8px;
+        background: #999;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+    }
+  }
+  .LR{
+    .Left,.Right{
+      width: 67px;
+      height: 128px;
+      overflow: hidden;
+      position: absolute;
+      z-index: 1000;
+      text-align: center;
+      font-size: 72px;
+      border-radius: 4px;
+      color: #666;
+      line-height: 128px;
+      margin-top: -64px;
+      top: 50%;
+      font-style: normal;
+      font-weight: 200;
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity .4s ease;
+    }
+    .Left{
+      left: 18px;
+      font-family: jiantou;
+    }
+    .Right{
+      right: 18px;
+      font-family: jiantou;
+    }
+    .o{
+      opacity: 0.6;
+    }
+  }
+}
+.con{
+  width: 100%;
+  min-height: 200px;
+  content: '';
+  display: block;
+  clear: both;
+  a{
+
+    border-bottom: 2px solid #fff;
+    @include onl{
+      width: 25%;
+    }
+    @include onm{
+      width: 50%;
+    }
+    @include ons{
+      width: 100%;
+    }
+    height: 200px;
+    display: block;
+    float: left;
+    box-sizing:border-box;
+  }
+  @include onl {
+    .con-1 {
+      border-right: 2px solid #fff;
+      background: url(../images/promo_applepay_large.jpg) no-repeat center;
+    }
+    .con-2{
+      border-right: 2px solid #fff;
+      background:url(../images/public_betas_large.jpg)no-repeat center;
+    }
+    .con-3{
+      border-right: 2px solid #fff;
+      background:url(../images/ios10_large.jpg)no-repeat center;
+    }
+    .con-4{
+      background:url(../images/hp_tiles_iphone_large.jpg)no-repeat center;
+    }
+  }
+  @include onm{
+    .con-1{
+      background:url(../images/promo_applepay_medium.jpg)no-repeat center;
+    }
+    .con-2{
+      border-right: 2px solid #fff;
+      background:url(../images/public_betas_medium.jpg)no-repeat center;
+    }
+    .con-3{
+      border-right: 2px solid #fff;
+      background:url(../images/ios10_medium.jpg)no-repeat center;
+    }
+    .con-4{
+      background:url(../images/hp_tiles_iphone_medium.jpg)no-repeat center;
+    }
+  }
+  @include ons{
+    .con-1{
+      background:url(../images/promo_applepay_small.jpg)no-repeat center;
+    }
+    .con-2{
+      border-right: 2px solid #fff;
+      background:url(../images/public_betas_small.jpg)no-repeat center;
+    }
+    .con-3{
+      border-right: 2px solid #fff;
+      background:url(../images/ios10_small.jpg)no-repeat center;
+    }
+    .con-4{
+      background:url(../images/hp_tiles_iphone_small.jpg)no-repeat center;
+    }
+  }
+
+}
+.footbox{
+  width: 100%;
+  height: 356px;
+  background: #f2f2f2;
+  .footer {
+    padding: 0 22px;
+    max-width: 980px;
+    height: 100%;
+    margin: 0 auto;
+    font-family: hzhengchang;
+    /* background: #ccc; */
+    .tell {
+      font-family: hzhengchang;
+      width: 100%;
+      font-size: 12px;
+      border-bottom: 1px solid #e3e3e3;
+      color: #999;
+      line-height: 20px;
+      padding-bottom: 5px;
+      margin-bottom: 6px;
+      padding-top: 20px;
+      span {
+        cursor:pointer;
+        color: #0088cc;
+        &:hover {
+          color: #555;
+          text-decoration: underline;
+        }
+      }
+    }
+    .copy1{
+      font-family: hzhengchang;
+      width: 100%;
+      height: 25px;
+      line-height: 25px;
+      font-size: 12px;
+      color: #999;
+    }
+    .place{
+      @include onm{
+        float: right;
+      }
+      @include onl{
+        float: right;
+      }
+      @include ons{
+        float: none;
+      }
+    }
+    .img1{
+      float: left;
+      /*margin-left: 455px;*/
+      margin-top: 5px;
+    }
+    .china{
+      @include onm{
+        float: right;
+      }
+      @include onl{
+        float: right;
+      }
+      @include ons{
+        float: none;
+      }
+      color: #666;
+      display: block;
+    }
+    .china:hover{
+      color: #444;
+      text-decoration: underline;
+    }
+    .word{
+      line-height: 15px;
+      margin-top: 5px;
+      @include onm{
+        float: left;
+      }
+      @include onl{
+        float: left;
+      }
+      @include ons{
+        float: none;
+      }
+    }
+    .links{
+      margin-top: 5px;
+      float: left;
+      margin-left: 33px;
+      line-height: 15px;
+    }
+    .links li{
+      float: left;
+      box-sizing: content-box;
+    }
+    .links li a{
+      height: 15px;
+      line-height: 15px;
+      border-right: 1px solid #D6D6D6;
+      margin-right: 10px;
+      padding-right: 12px;
+      white-space: nowrap;
+      box-sizing: content-box;
+      color: #666;
+    }
+    .shu{
+      margin: 0 14px;
+
+    }
+    .links li a:hover{
+      color: #444;
+      text-decoration: underline;
+
+    }
+    .copy2{
+      width: 100%;
+      line-height: 20px;
+      font-size: 12px;
+      color: #999;
+      text-align: left;
+      span{
+          color: #999;
+          &:hover{
+            text-decoration: underline;
+          }
+      }
+
+    }
+    .listbox{
+      width: 100%;
+      height: 240px;
+      padding-top: 12px;
+      font-size: 12px;
+      line-height: 1.66667;
+      font-weight: 400;
+      color: #666;
+      .list{
+        width: 20%;
+        height: auto;
+        float: left;
+        line-height: 20px;
+        .title{
+          font-weight: 600;
+          padding-top: 20px;
+          font-family: hcuti;
+          color: #333;
+          span{
+            float: right;
+            font-size: 12px;
+            font-weight: 600;
+            display: none;
+            transition:all 1s;
+          }
+        }
+        .erji{
+          @include onl{
+            display: block;
+          }
+          @include onm{
+            display: block;
+          }
+          @include ons{
+            display: none;
+          }
+          a{
+            font-family: hzhengchang;
+            color: #666;
+            transition: all .5s ease;
+            &:hover{
+              color: #333;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include ons{
+  .header{
+    height: 48px;
+    .min-nav{
+      display: block;
+    }
+    .max-nav{
+      height: auto;
+      padding: 0 30px;
+      display: none ;
+      li{
+        width: 100%;
+        height: 44px;
+        border-bottom: 1px solid #666;
+      }
+      .logo,.bag{
+        display: none!important;
+      }
+    }
+  }
+  .con{
+    height: 800px;
+  }
+  .footbox{
+    height: auto!important;
+
+  }
+  .footer{
+    width: auto;
+    height: auto;
+    padding: 0 20px;
+  }
+  .listbox{
+    height: auto!important;
+  }
+  .list{
+    width: 100%!important;
+    float:none!important;
+  }
+  .title{
+    height: 38px;
+    padding-top: 0px!important;
+    line-height: 38px;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .title span{
+    display: block!important;
+  }
+  .erji{
+    display: none;
+    li{
+      line-height: 30px;
+    }
+  }
+  .place{
+    padding-bottom: 8px;
+  }
+  .tell{
+    margin-top: 10px;
+    height: auto!important;
+    padding-bottom: 6px;
+    border-bottom: 6px!important;
+    background-size: cover;
+  }
+  .copy2{
+    height: auto!important;
+    text-align: left!important;
+
+    margin-bottom: 20px;
+  }
+  .copy1{
+    height: auto!important;
+    line-height: 20px;
+  }
+  .links{
+    height: 20px;
+    float: none!important;
+  }
+  .links{
+    margin-left: 0px!important;
+  }
+  .activeJia{
+    transform:rotate(45deg);
+  }
+}
+@include onm{
+  .header{
+    height: 44px;
+    .max-nav{
+      display: block;
+    }
+  }
+  .con{
+    height: 400px;
+  }
+  .erji{
+    display: block;
+  }
+}
+@include onl{
+  .header{
+    height: 44px;
+    .max-nav{
+      display: block;
+    }
+  }
+  .erji{
+    display: block!important;
+  }
+}
+$list:(
+        'logo':20px,
+        'mac':31px,
+        'ipad':30px,
+        'iphone':48px,
+        'watch':44px,
+        'music':40px,
+        'support':57px,
+        'search':20px,
+        'bag':18px,
+);
+@each $k in map_keys($list){
+      .#{$k} a{
+        width: map-get($list,$k);
+        background: url(../images/#{$k}_large.svg) no-repeat center center;
+        background-size: map-get($list,$k) 44px;
+      }
+}
+@for $i from 2 through 8{
+  .max-nav li.animation:nth-of-type(#{$i}){
+    transform: rotateY(80deg);
+    opacity: 0;
+  }
+}
+
+

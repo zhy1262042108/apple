@@ -1,0 +1,45 @@
+$s-device:768px;
+$m-device:1068px;
+$l-device:3000px;
+@mixin ons{
+  @media screen and (max-width: $s-device) {
+    @content;
+  }
+}
+
+@mixin onm{
+  @media screen and (min-width: $s-device) and (max-width: $m-device){
+    @content;
+  }
+}
+
+@mixin onl{
+  @media screen and (min-width: $m-device) {
+    @content;
+  }
+}
+
+@mixin cube($size){
+  width: $size;
+  height: $size;
+}
+
+@mixin center{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
+  top:0;
+}
+
+@mixin shangxia{
+  position: absolute;
+  bottom: 0;
+  top:0;
+}
+
+@mixin zuoyou{
+  position: absolute;
+  left: 0;
+  right: 0;
+}

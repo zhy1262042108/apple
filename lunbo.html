@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lunbo</title>
+    <!--<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>-->
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/lunbo.css">
+
+    <script>
+        $(function(){
+            var moving=false;
+            magicmove=function (n,dir) {
+                moving=true;
+                var active=$('.inner .active');
+                active.addClass(dir).delay(600).queue(function (){
+                    moving=false;
+                    $(this).removeClass('active').removeClass(dir).dequeue();
+
+
+                })
+
+                var op=(dir==='left')?'right':'left';
+                $(n).addClass(op);
+                $(n).addClass('active');
+                $(n).get(0).offsetWidth;//强制让浏览器显示上面的状态，（瞬间添加类又瞬间移除类）
+                $(n).removeClass(op);
+                $('.zhishi li').removeClass('active').eq(items.index(n)).addClass('active')
+            }
+            var you=$('.lunbo .you');
+            var items=$('.inner .item');
+            you.on('click',function () {
+                if (moving) return;
+                var active=$('.inner .active');
+               /* console.log(active.next().length)*/
+                if (active.next().length){
+                    var  n=active.next();
+                }else{
+                    var n=items.eq(0);
+                }
+                magicmove(n,'left');
+            })
+            var zuo=$('.lunbo .zuo');
+            zuo.on('click',function () {
+                if (moving) return;
+                var active=$('.inner .active');
+                /* console.log(active.next().length)*/
+                if (active.prev().length){
+                    var n=active.prev();
+                }else{
+                    var  n=items.eq(-1);
+                }
+                magicmove(n,'right');
+            })
+            $('.zhishi li').on('click',function () {
+               var dir;
+                if ($(this).index()>items.index($('.inner .active'))){
+                    dir='left';
+                }else if($(this).index()<items.index($('.inner .active'))){
+                    dir='right';
+                }else{
+                    return;
+                }
+                var n=items.eq($(this).index());
+                magicmove(n,dir);
+                /*if ($(this).index()>items.index('.active')){
+                    var n=items.eq($(this).index());
+                    magicmove(n,'left');
+                }else if($(this).index()<items.index('.active')){
+                    var n=items.eq($(this).index());
+                    magicmove(n,'right');
+                }else{
+                    moving=false;
+                }*/
+
+                    /*$('.zhishi li').removeClass('active')
+                    $(this).addClass('active');*/
+            })
+            setInterval(function () {
+                you.trigger('click');
+            },3000)
+        })
+    </script>
+</head>
+<body>
+     <div class="lunbo">
+         <ul class="inner">
+             <li class="item active">1</li>
+             <li class="item">2</li>
+             <li class="item">3</li>
+             <li class="item">4</li>
+         </ul>
+         <ul class="zhishi">
+             <li class="circle active"></li>
+             <li class="circle"></li>
+             <li class="circle"></li>
+             <li class="circle"></li>
+         </ul>
+         <i class="zuo"></i>
+         <i class="you"></i>
+     </div>
+</body>
+</html>
